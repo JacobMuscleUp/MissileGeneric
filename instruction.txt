@@ -1,0 +1,50 @@
+(1) Refer to Minimal Scene.scene in order to familiar yourself with the minimum set of components required to construct a fully functional level
+(2) The minimum set of components required is included in "Resources/Prefabs/Necessary Components" folder
+(3) To construct a scene, the user has to drag and drop at least all the components in "Resources/Prefabs/Necessary Components" folder onto the scene
+(4) To add additional flavours to the level, the user can optionally drag and drop any combination of the components in "Resources/Prefabs/Optional Components" folder onto the scene
+(5) The components in "Resources/Prefabs/Non-drag-and-drop Components" folder are not supposed to be dragged and dropped onto the scene and are meant to be used by components in either "Resources/Prefabs/Necessary Components" folder or "Resources/Prefabs/Optional Components" folder
+
+Configurable components from "Resources/Prefabs" folder
+(1) Cannon
+(2) Enemy Spawner
+(3) Play Field
+(4) Audio Manager
+(5) Wave Manager
+(6) Counter Missile
+(7) Enemy Missile 0
+(8) Enemy Missile 1
+(9) Explosion
+(10) Cannon Manager
+(11) Camera Manager
+(12) Screenshot Manager
+
+IMPORTANT
+(1) MAKE SURE TO TAKE A LOOK AT THE INSPECTOR WINDOW OF EACH CONFIGURABLE COMPONENT
+(2) Play Field component can be scaled and moved about freely. However its orientation/rotation should stay untouched.
+(3) If the x-position of Play Field component is changed and Cannon Manager component doesn't exist in the scene, then the x-position of each Cannon prefab has to be manually changed based on the horizontal position of Play Field component. Otherwise, no manual change has to be made.
+(4) Camera Manager component can be moved about and rotated freely if it is in Convenient Mode.
+(5) The default key required to press to capture a screenshot is "S" if Screenshot Manager exists in the current scene.
+
+HOW TO PLAY
+(1) left-click to fire the closest cannon with sufficient ammunition
+(2) for all i in {1, 2, ..., n} : press key i to fire the i th cannon, where n denotes the number of cannons that currently exist in the current level
+
+The instrctions for setting up a level
+(1) When creating a new scene, remove the main camera and add all the components included in "Resources/Prefabs/Necessary Components" folder to the scene
+(2) All missiles need to move vertically instead of horizontally and the Play Field should thus be placed vertically in the scene
+(3) The purpose of Play Field is to define the area in which all game entities are supposed to be. 
+(4) The horizontal range of the Play Field defines the horizontal range within which enemy missiles are randomly spawned
+(5) The vertical range of the Play Field defines the vertical range within which enemy missiles can move
+(6) All cannons are automatically positioned at the bottom of the Play Field and this indicates that the y-position of each cannon is automatically identical to that of the bottom of the Play Field and the user is thus not required to determine the Cannon's y-position 
+(7) The y-position of the valid locations at which enemy missiles are spawned is also determined by the Play Field and that y-position is identical to the y-position of the top of the Play Field
+(8) Camera Manager component can function as either a plain main camera or a main camera that is automatically positioned and oriented in such a way that it can see the entire play field. The mode of this component can be determined in its ManageCamera inspector.
+
+Reminders
+(1) The user can adjust several important properties to see the immediate changes applied to the level on runtime. They include Vertical Enemy Path in Enemy Spawner and Switch Dir Count in Enemy Missile 0/1.
+(2) If Vertical Enemy Path is ticked, Switch Dir Count is not available. Otherwise, Switch Dir Count is available.
+(3) If the Switch Dir Count of an enemy missile prefab is adjusted, the number of horizontal lines that corresponds to that enemy missile prefab is adjusted accordingly on runtime
+(4) Wave Manager is where the user can flexibly configure waves in a level
+(5) Press key "L" to transition from the current level to the next one
+(6) If SwitchDirLevels Drawer is present in the scene, horizontal lines appear in the Play Field if Vertical Enemy Path isn't ticked. Each horizontal line determines the vertical location at which enemy missiles with the same color as the horizontal line can switch their directions.
+(7) The min number and max number of cannons in a level are respectively 1 and 9.
+(8) All levels should be registered in the build settings. The build index of each level should be at least 1. This requirement implies that a dummy scene should be created and made to occupy the position at index 0.

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a0b84c6fb8f7e93439c3b608073875b0
+timeCreated: 1498848632
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Viking Squad
+  fontNames:
+  - Viking Squad
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
